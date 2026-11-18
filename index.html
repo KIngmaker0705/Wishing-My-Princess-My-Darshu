@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Princess Day, My Love 👑✨</title>
+  
+  <!-- Favicon with Crown -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+  
+  <!-- Romantic Luxury Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="theme-1">
+  <!-- Dynamic Interactive Particle Canvas (Stars, Petals, Hearts) -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Ambient Midnight Glowing Nebula Orbs -->
+  <div class="bg-glow-orb orb-1"></div>
+  <div class="bg-glow-orb orb-2"></div>
+  <div class="bg-glow-orb orb-3"></div>
+
+  <!-- Audio Element for Custom MP3 Song -->
+  <audio id="bgSongAudio" loop preload="auto"></audio>
+
+  <!-- Header Navigation Bar -->
+  <header class="royal-header">
+    <div class="header-content">
+      <div class="royal-brand">
+        <span class="crown-icon">👑</span>
+        <span class="brand-text" id="siteTitle">Happy Princess Day</span>
+      </div>
+      
+      <!-- Audio Toggle Button -->
+      <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Toggle Romantic Music" title="Play / Pause Song">
+        <span class="music-icon" id="musicIcon">🎵</span>
+        <span class="music-label" id="musicLabel">Play Music</span>
+        <span class="sound-wave" id="soundWave">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Experience Container -->
+  <main class="story-wrapper">
+    <!-- Chapter / Page Progress Dots -->
+    <nav class="chapter-nav" aria-label="Chapters">
+      <button class="nav-dot active" data-page="0" title="Chapter 1">
+        <span class="dot-icon">👑</span>
+        <span class="dot-tooltip">Chapter 1</span>
+      </button>
+      <button class="nav-dot" data-page="1" title="Chapter 2">
+        <span class="dot-icon">💎</span>
+        <span class="dot-tooltip">Chapter 2</span>
+      </button>
+      <button class="nav-dot" data-page="2" title="Chapter 3">
+        <span class="dot-icon">🌹</span>
+        <span class="dot-tooltip">Chapter 3</span>
+      </button>
+      <button class="nav-dot" data-page="3" title="Chapter 4">
+        <span class="dot-icon">💖</span>
+        <span class="dot-tooltip">Chapter 4</span>
+      </button>
+    </nav>
+
+    <!-- Main Card Carousel Container -->
+    <section class="card-viewport" id="cardViewport">
+      <article class="royal-card" id="cardElement">
+        <!-- Chapter Badge -->
+        <div class="badge-wrapper">
+          <span class="chapter-badge" id="chapterBadge">👑 Chapter I</span>
+        </div>
+
+        <!-- Royal Page Title -->
+        <h1 class="page-title" id="pageTitle">To The One Who Stole My Heart</h1>
+
+        <!-- Image Frame -->
+        <div class="image-frame-container">
+          <div class="gilded-border">
+            <div class="image-wrapper">
+              <img id="cardImage" src="images/photo1.jpg" alt="My Beautiful Princess" loading="lazy">
+              <!-- Placeholder Fallback if image not found -->
+              <div class="image-placeholder" id="imagePlaceholder">
+                <div class="placeholder-icon">👑</div>
+                <div class="placeholder-text">Your Photo Here</div>
+                <div class="placeholder-filename" id="placeholderFilename">photo1.jpg</div>
+                <div class="placeholder-sub">Add this image to the /images folder</div>
+              </div>
+            </div>
+          </div>
+          <p class="image-caption" id="imageCaption">The smile that lights up my entire universe ✨</p>
+        </div>
+
+        <!-- Royal Message Parchment Box -->
+        <div class="message-container">
+          <div class="letter-decoration top-left">❦</div>
+          <div class="letter-decoration top-right">❦</div>
+          <div class="message-content" id="messageContent">
+            <!-- Dynamic Message text populated here -->
+          </div>
+          <div class="letter-decoration bottom-left">❦</div>
+          <div class="letter-decoration bottom-right">❦</div>
+        </div>
+
+        <!-- Special Interactive Surprise Button on Page 4 -->
+        <div class="surprise-section" id="surpriseSection" style="display: none;">
+          <button class="royal-btn surprise-btn" id="surpriseBtn">
+            <span class="btn-sparkle">✨</span>
+            <span>Crown My Forever Princess</span>
+            <span class="btn-sparkle">✨</span>
+          </button>
+        </div>
+
+        <!-- Card Bottom Navigation Controls -->
+        <footer class="card-controls">
+          <button class="nav-btn prev-btn" id="prevBtn" disabled>
+            <span class="arrow">←</span>
+            <span class="btn-text">Previous</span>
+          </button>
+
+          <div class="page-counter" id="pageCounter">1 / 4</div>
+
+          <button class="nav-btn next-btn" id="nextBtn">
+            <span class="btn-text">Next Chapter</span>
+            <span class="arrow">→</span>
+          </button>
+        </footer>
+      </article>
+    </section>
+
+    <!-- Floating Hint for Mobile Users -->
+    <div class="swipe-hint">
+      <span>💡 Swipe left / right or tap buttons to turn pages</span>
+    </div>
+  </main>
+
+  <!-- ========================================================
+       MUSIC WELCOME POPUP MODAL
+       ======================================================== -->
+  <div class="modal-overlay open" id="musicModalOverlay">
+    <div class="modal-card music-modal-card">
+      <div class="modal-music-decor">
+        <span class="music-note-float">🎵</span>
+        <span class="modal-crown">👑</span>
+        <span class="music-note-float right">✨</span>
+      </div>
+      <h2 class="modal-title" id="musicPopupTitle">A Melody for My Princess 🎵</h2>
+      <div class="modal-divider">✦ ✧ ✦</div>
+      <p class="music-modal-text" id="musicPopupMessage">
+        Would you like to play our special song while you explore your royal chapters?
+      </p>
+      <div class="music-modal-actions">
+        <button class="royal-btn music-play-btn" id="musicModalPlayBtn">
+          <span>✨ Yes, Play Our Song</span>
+        </button>
+        <button class="music-mute-btn" id="musicModalMuteBtn">
+          <span>Enter Quietly</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       ROYAL DECREE SURPRISE MODAL (Page 4 Finale)
+       ======================================================== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card royal-decree-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">×</button>
+      <div class="modal-crown">👑</div>
+      <h2 class="modal-title">Official Royal Decree</h2>
+      <div class="modal-divider">✦ ✧ ✦</div>
+      <div class="modal-body">
+        <p class="modal-recipient">Proclaimed in honor of:</p>
+        <h3 class="modal-her-name" id="modalHerName">My Forever Princess</h3>
+        <p class="modal-text">
+          By decree of the heart, you are hereby crowned the eternal ruler of my thoughts, the keeper of my happiness, and the sweetest princess in all the realms.
+        </p>
+        <p class="modal-signature">With all my love & devotion, forever & always ❤️✨</p>
+      </div>
+      <button class="royal-btn modal-action-btn" id="modalConfirmBtn">Forever & Always 💖</button>
+    </div>
+  </div>
+
+  <!-- Music Status Toast Notification -->
+  <div class="song-toast" id="songToast">
+    <span class="toast-icon">🎶</span>
+    <span class="toast-text" id="songToastText">Now Playing: Our Special Song 💖</span>
+  </div>
+
+  <!-- Confetti Canvas for Grand Finale -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Load Config and Core Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
